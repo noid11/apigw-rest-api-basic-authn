@@ -1,8 +1,4 @@
-# Welcome to your CDK TypeScript project!
-
-This is a blank project for TypeScript development with CDK.
-
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+# APIGW REST API Basic Authentication CDK App
 
 ## Useful commands
 
@@ -12,3 +8,22 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
  * `cdk deploy`      deploy this stack to your default AWS account/region
  * `cdk diff`        compare deployed stack with current state
  * `cdk synth`       emits the synthesized CloudFormation template
+
+
+### deploy to specific region
+
+```bash
+REGION=us-east-1
+export AWS_DEFAULT_REGION=$REGION
+cdk deploy
+unset AWS_DEFAULT_REGION
+```
+
+
+### tail Lambda function log
+
+```bash
+REGION=us-east-1
+LOG_GROUP=/aws/lambda/xxx
+aws --region $REGION logs tail $LOG_GROUP --follow
+```
